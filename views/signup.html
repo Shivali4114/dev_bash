@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Legal Learner</title>
+  <link rel="stylesheet" href="/gamified-lms/public/css/signup.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h1>Create Your Account</h1>
+    <form action="/signup" method="POST" class="auth-form">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit" class="btn-primary">Sign Up</button>
+      <p class="switch-text">Already have an account? <a href="/views/login.html">Log In</a></p>
+    </form>
+  </div>
+</body>
+</html>

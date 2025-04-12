@@ -1,0 +1,511 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #fff; /* White text for contrast */
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #d32f2f, #000000); /* Red to black gradient */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  animation: gradientShift 6s ease infinite alternate;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(135deg, #d32f2f, #000000); /* Red to black */
+  }
+  100% {
+    background: linear-gradient(135deg, #000000, #d32f2f); /* Reversed gradient */
+  }
+}
+
+.highlight {
+  font-size: 3rem;
+  color: #fff; /* Solid white text */
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 1.8rem;
+  margin-top: 15px;
+}
+
+.subheading {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 15px auto 30px;
+  color: #e0e0e0; /* Lighter text color for readability */
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px; /* Adjusted space for clarity */
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #d32f2f; /* Red color */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #ff6666; /* Light red hover */
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #fff;
+  color: #d32f2f; /* Red color on hover */
+}
+
+.hero-animation {
+  margin-top: 30px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* reduce this */
+  background: #fff;
+  clip-path: ellipse(75% 100% at 50% 100%);
+  z-index: 1;
+}
+
+/* How It Works */
+.how-it-works {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.how-it-works h2 {
+  font-size: 3rem; /* Increased font size for the section title */
+}
+
+.how-it-works .subheading {
+  font-size: 1.5rem; /* Increased font size for the subheading */
+  max-width: 600px;
+  margin: 15px auto 30px;
+  color: #e0e0e0;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.step {
+  flex: 1;
+  min-width: 250px;
+  margin: 30px 20px;
+  background: #000;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+.step:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.step:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.step:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Meet the Legal Heroes */
+.heroes {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.heroes h2 {
+  font-size: 3rem; 
+}
+
+.heroes .subheading {
+  font-size: 1.5rem; 
+  max-width: 600px;
+  margin: 15px auto 30px;
+  color: #e0e0e0;
+}
+
+.hero-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero-card {
+  background: #000;
+  border-radius: 15px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInZoom 0.6s forwards;
+}
+
+.hero-card img {
+  width: 150px;
+  height: 150px;
+}
+
+.hero-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.hero-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stats */
+.stats {
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px; /* Adjusted padding for the stats section */
+}
+
+.counters {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.counter h3 {
+  font-size: 2rem;
+  color: #d32f2f; /* Red counters */
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter span {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Demo Video */
+.demo {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #121212;
+}
+
+.demo h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.demo p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.demo video {
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Join Movement */
+.join-movement {
+  background: linear-gradient(135deg, #d32f2f, #000000);
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  padding: 60px 20px;
+  margin-top: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added a subtle shadow */
+}
+
+.join-movement h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Adjusted margin for heading spacing */
+}
+
+.join-movement p {
+  font-size: 1.2rem;
+  margin-bottom: 30px; /* Added spacing between text and button */
+  color: #e0e0e0;
+}
+
+.join-movement .btn-primary {
+  background-color: #fff;
+  color: #d32f2f;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow for better focus */
+}
+
+.join-movement .btn-primary:hover {
+  background-color: #ff6666;
+  color: #fff;
+}
+
+/* For smaller screens (responsive) */
+@media (max-width: 768px) {
+  .join-movement {
+    padding: 40px 15px; /* Reduced padding on smaller screens */
+  }
+
+  .join-movement h2 {
+    font-size: 2rem; /* Adjusted font size for smaller screens */
+  }
+
+  .join-movement .btn-primary {
+    padding: 12px 25px;
+    font-size: 1rem; /* Adjusted button size */
+  }
+}
+
+/* FAQ Section */
+.faq {
+  padding: 60px 20px;
+  background-color: #121212;
+  text-align: center;
+}
+
+.faq h2 {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.faq details {
+  background: #000;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+}
+
+/* Subscribe Section (Stay Updated) */
+.subscribe {
+  padding: 60px 20px;
+  background-color: #000;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.subscribe h2 {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.subscribe p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.subscribe form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.subscribe input {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  width: 250px;
+  outline: none;
+}
+
+.subscribe button {
+  padding: 10px 25px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe button:hover {
+  background-color: #b71c1c;
+}
+
+/* Footer */
+.footer {
+  background: #121212;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .steps, .counters, .hero-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .subscribe input {
+    width: 100%;
+  }
+}
