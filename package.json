@@ -9,11 +9,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
-    "express-validator": "^7.2.1"
-  }
+    "express-validator": "^7.2.1",
+    "sqlite3": "^5.1.7"
+  },
+  "description": ""
 }
