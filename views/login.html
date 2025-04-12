@@ -22,5 +22,37 @@
       </form>
     </div>
   </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from submitting the traditional way
+  
+      const email = document.querySelector('input[type="email"]').value;
+      const password = document.querySelector('input[type="password"]').value;
+  
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          window.location.href = '/dashboard'; // Redirect to the dashboard
+        } else {
+          alert(data.message); // Show error message
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during login.');
+      });
+    });
+  </script>
+  
+  <script src="/JS/login.js"></script>
+
 </body>
 </html>

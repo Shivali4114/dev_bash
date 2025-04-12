@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Legal Heroes LMS</title>
+  <link rel="stylesheet" href="/gamified-lms/public/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>🎓 Welcome to Your Dashboard</h1>
+    <p>Choose your next adventure in legal learning</p>
+    <a href="/logout" class="logout-btn">Logout</a>
+  </header>
+
+  <main class="dashboard-grid">
+    <div class="card" onclick="location.href='/quiz.html'">
+      <h2>🧠 Start a Quiz</h2>
+      <p>Test your knowledge with gamified quizzes!</p>
+    </div>
+    <div class="card">
+      <h2>📚 Learn Laws</h2>
+      <p>Explore interactive lessons and real-world cases.</p>
+    </div>
+    <div class="card">
+      <h2>🏆 Your Achievements</h2>
+      <p>Track your badges, progress, and rank.</p>
+    </div>
+    <div class="card">
+      <h2>🎮 Play Legal Mini-Games</h2>
+      <p>Enjoy fun games that teach while you play.</p>
+    </div>
+  </main>
+
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

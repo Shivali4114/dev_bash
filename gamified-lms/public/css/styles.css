@@ -13,6 +13,8 @@ body {
   scroll-behavior: smooth;
 }
 
+
+
 /* HERO SECTION */
 .hero {
   position: relative;
@@ -508,4 +510,30 @@ body {
   .subscribe input {
     width: 100%;
   }
+}
+
+.top-nav-buttons {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.top-btn {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;  
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 20px;  
+  font-weight: 600;
+  font-size: 1rem;  /* Smaller font size */
+  transition: all 0.3s ease;
+}
+
+.top-btn:hover {
+  background-color: white;
+  color: #d32f2f;
 }
