@@ -49,6 +49,7 @@
   </header>
 
   <!-- How It Works -->
+  <section id="how-it-works">
   <section class="how-it-works">
     <h2>How It Works</h2>
     <div class="steps">
@@ -57,34 +58,44 @@
       <div class="step">🏆 <h3>Win Badges</h3> <p>Progress through levels and quizzes</p></div>
     </div>
   </section>
+</section>
   
 
-  <!-- Meet the Legal Heroes -->
-  <section class="heroes">
-    <h2>Meet the Legal Heroes!</h2>
-    <div class="hero-cards">
-      <div class="hero-card">
-        <img src="/gamified-lms/public/images/justice.png" alt="Justice Kid" />
-        <h3>Justice Kid</h3>
-        <p>Fights for fairness and equality</p>
-      </div>
-      <div class="hero-card">
-        <img src="/gamified-lms/public/images/safety-girl.png" alt="Safety Girl" />
-        <h3>Safety Girl</h3>
-        <p>Knows how to stay safe and protect others</p>
-      </div>
+ <!-- Stats Section -->
+<section class="stats" id="know-the-numbers">
+  <h2>Know the Numbers</h2>
+  <div class="counters">
+    <div class="counter">
+      <h3><span class="count" data-target="85">0</span>%</h3>
+      <p>Children unaware of rights</p>
     </div>
-  </section>
+    <div class="counter">
+      <h3><span class="count" data-target="10000">0</span>+</h3>
+      <p>Points earned so far</p>
+    </div>
+    <div class="counter">
+      <h3><span class="count" data-target="500">0</span>+</h3>
+      <p>Legal Heroes created</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Stats Section -->
-  <section class="stats">
-    <h2>Know the Numbers</h2>
-    <div class="counters">
-      <div class="counter"><h3>85%</h3><p>Children unaware of rights</p></div>
-      <div class="counter"><h3>10,000+</h3><p>Points earned so far</p></div>
-      <div class="counter"><h3>500+</h3><p>Legal Heroes created</p></div>
+<!-- Meet the Legal Heroes -->
+<section class="heroes">
+  <h2>Meet the Legal Heroes!</h2>
+  <div class="hero-cards">
+    <div class="hero-card">
+      <img src="/gamified-lms/public/images/justice.png" alt="Justice Kid" />
+      <h3>Justice Kid</h3>
+      <p>Fights for fairness and equality</p>
     </div>
-  </section>
+    <div class="hero-card">
+      <img src="/gamified-lms/public/images/safety-girl.png" alt="Safety Girl" />
+      <h3>Safety Girl</h3>
+      <p>Knows how to stay safe and protect others</p>
+    </div>
+  </div>
+</section>
 
   <!-- Demo Section -->
   <section class="demo">
@@ -128,5 +139,42 @@
       <li><a href="#">Privacy</a></li>
     </ul>
   </footer>
+
+  <script>
+    const counters = document.querySelectorAll('.count');
+  
+    const animateCounter = (counter) => {
+      counter.innerText = '0'; // reset count
+      const target = +counter.getAttribute('data-target');
+      const speed = 200;
+      const step = Math.ceil(target / speed);
+  
+      const update = () => {
+        const current = +counter.innerText;
+        if (current < target) {
+          counter.innerText = Math.min(current + step, target);
+          requestAnimationFrame(update);
+        }
+      };
+      update();
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.count');
+          counters.forEach(counter => animateCounter(counter));
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+  
+    const statsSection = document.getElementById('know-the-numbers');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  </script>  
+  
 </body>
 </html>

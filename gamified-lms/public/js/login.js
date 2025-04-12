@@ -1,29 +1,31 @@
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent page refresh
-  
-    const email = document.querySelector('input[name="email"]').value;
-    const password = document.querySelector('input[name="password"]').value;
-  
+    e.preventDefault(); // Prevent the default form submission
+
+    const email = document.getElementById('email').value; // Get email input
+    const password = document.getElementById('password').value; // Get password input
+
+    // Use Fetch API to send login data asynchronously
     fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json' // Set content type as JSON
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }) // Send email and password as JSON body
     })
-    .then(res => res.json())
+    .then(res => res.json()) // Parse the JSON response from the backend
     .then(data => {
-      const messageBox = document.getElementById('message');
-  
+      const messageDiv = document.getElementById('loginMessage'); // Div to show messages
       if (data.success) {
-        messageBox.innerHTML = '<p style="color: green;">✅ Login Successful! You can now access the dashboard from the Home tab.</p>';
+        // If login successful, display success message
+        messageDiv.innerHTML = `<h1>✅ Login Successful!</h1><p>${data.message}</p>`;
       } else {
-        messageBox.innerHTML = `<p style="color: red;">❌ ${data.message || 'Login failed'}</p>`;
+        // If login failed, display error message
+        messageDiv.innerHTML = `<h1>❌ Login Failed</h1><p>${data.message}</p>`;
       }
     })
     .catch(err => {
       console.error('Login error:', err);
-      document.getElementById('message').innerHTML = '<p style="color: red;">Error logging in.</p>';
+      alert('Error logging in.');
     });
   });
-  
+</script>

@@ -274,6 +274,12 @@ body {
   flex-wrap: wrap;
   margin-top: 30px;
 }
+.stats h2 {
+  font-size: 2.7rem;
+  color: #fff; /* Green color for numbers */
+  margin: 0;
+  font-weight: bold; /* Optional: make numbers bolder */
+}
 
 .counter h3 {
   font-size: 2rem;
@@ -289,7 +295,7 @@ body {
 .counter span {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #d32f2f;
 }
 
 /* Demo Video */
@@ -537,3 +543,4 @@ body {
   background-color: white;
   color: #d32f2f;
 }
+

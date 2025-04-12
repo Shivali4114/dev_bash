@@ -6,6 +6,8 @@
   <title>Dashboard - Legal Heroes LMS</title>
   <link rel="stylesheet" href="/gamified-lms/public/css/dashboard.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet" />
+  <script src="ttps://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
+
 </head>
 <body>
   <header class="dashboard-header">
@@ -14,7 +16,20 @@
     <a href="/logout" class="logout-btn">Logout</a>
   </header>
 
+  <section class="user-profile">
+    <div class="profile-section">
+        <div class="profile-picture">
+          <img src="/gamified-lms/public/images/safety-girl.png" alt="Profile Picture" />
+        </div>
+        <div class="profile-info">
+          <h3>Welcome, [Username]!</h3>
+          <p>Email: [Email]</p>
+          <a href="/edit-profile" class="edit-profile">Edit Profile</a>
+        </div>
+  </section>
+
   <main class="dashboard-grid">
+    
     <div class="card" onclick="location.href='/quiz.html'">
       <h2>🧠 Start a Quiz</h2>
       <p>Test your knowledge with gamified quizzes!</p>
@@ -32,5 +47,100 @@
       <p>Enjoy fun games that teach while you play.</p>
     </div>
   </main>
+
+  <section class="progress-tracker">
+    <h3>Progress</h3>
+    <p>Courses Completed: 70%</p>
+    <div class="progress-bar">
+      <div class="progress" style="width: 70%;"></div>
+    </div>
+  </section>
+
+  <main class="dashboard-container">
+    <div class="left-section">
+        <h2>🏆 Leaderboard</h2>
+
+        <lottie-player
+        src="https://lottie.host/b0d87383-4d1e-4e2f-bad8-a92aeefbe5c5/fs2676dK5W.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px;"
+        loop
+        autoplay
+      ></lottie-player>
+
+      <ul id="leaderboard">
+        <li>1. Shivali - 1500 Points</li>
+        <li>2. Om J. - 1400 Points</li>
+        <li>3. Shubham Y. - 1300 Points</li>
+      </ul>
+    </div>
+
+    <div class="right-section">
+      <h2>Recent Activity</h2>
+      <ul id="recent-activity">
+        <li>Completed: Legal Quiz #1</li>
+        <li>Achieved: Law Basics Badge</li>
+        <li>Started: Legal Mini-Game "Law Challenge"</li>
+      </ul>
+    </div>
+  </main>
+  
+
+
+  <div class="dashboard-container">
+    <!-- Left section (Notifications) -->
+    <div class="left-section">
+      <div class="notifications">
+        <h3>🔔 Notifications</h3>
+        <ul>
+          <li>New Course Available: Criminal Law Basics</li>
+          <li>Your quiz score for "Legal Basics" is available.</li>
+          <li>New Event: Legal Webinar on 15th April.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Right section (Upcoming Events) -->
+    <div class="right-section">
+      <div class="events">
+        <h3>📅 Upcoming Events</h3>
+        <ul>
+          <li>Legal Basics Webinar - 15th April</li>
+          <li>Advanced Law Quiz - 20th April</li>
+          <li>Criminal Law Mini-Game - 25th April</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="achievements-section">
+    <!-- Confetti Animation Background -->
+    <div class="confetti">
+      <!-- Confetti pieces -->
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    </div>
+  
+    <h2>Your Achievements</h2>
+    <ul id="achievements">
+      <li>Law Expert</li>
+      <li>Quiz Master</li>
+      <li>Legal Eagle</li>
+    </ul>
+  </div>
+
+  <div id="popupNotification" class="popup-notification">
+    <p>🔔 New course available: Criminal Law Basics!</p>
+  </div>
+  
+
+  <script src="/gamified-lms/public/js/leaderboard.js"></script>
+
 </body>
 </html>
