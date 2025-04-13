@@ -66,3 +66,10 @@ gamified-lms/
 └── README.md
 
 
+![ui1](https://github.com/user-attachments/assets/fe76f466-7120-40e6-9a64-21b01a818a95)
+
+![ui2](https://github.com/user-attachments/assets/d97ccd63-4cff-42c7-b41d-99f1a70e212d)
+
+![ui3](https://github.com/user-attachments/assets/64428a7c-2529-414b-bc25-0a18e32176fe)
+
+![ui4](https://github.com/user-attachments/assets/5c5719e9-3565-4eae-bbd6-b82e3bea38e6)
