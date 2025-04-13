@@ -6,37 +6,42 @@
   <title>Child Law Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/gamified-lms/public/css/quiz.css">
+  
 </head>
 <body>
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
 
-    <div id="quiz-container">
-        <div id="quiz-box">
-          <!-- Quiz question and options will be dynamically loaded here -->
-          <div id="question-container">
-            <h2 id="question">Question will appear here</h2>
-          </div>
-          <div id="options">
-            <!-- Answer options will be dynamically loaded here -->
-          </div>
-          <div id="controls">
-            <div id="timer-box">
-              <p id="timer">Time Left: 30s</p>
-            </div>
-            <div id="points-box">
-              <p>Points: <span id="points">0</span></p>
-            </div>
-            <div id="xp-box">
-              <p>XP: <span id="xp">0</span></p>
-            </div>
-            <button id="hint-btn">Hint</button>
-            <button id="next-btn" style="display: none;">Next Question</button>
-          </div>
-        </div>
-        <div id="result-box" style="display: none;">
-          <h2>Your Final Score: <span id="final-score">0</span></h2>
-          <p>XP Earned: <span id="final-xp">0</span></p>
-          <button id="restart-btn">Restart Quiz</button>
-        </div>
+ <!-- Quiz Container -->
+ <div id="quiz-container">
+    <div id="quiz-box">
+      <!-- Stats: Timer, Points, XP -->
+      <div id="stats-container">
+        <div id="timer-box">Timer: 30s</div>
+        <div id="points-box">Points: 0</div>
+        <div id="xp-box">XP: 0</div>
+      </div>
+
+      <!-- Question and Options -->
+      <div id="question-container">
+        <h2 id="question">Question will appear here</h2>
+        <div id="options"></div>
+      </div>
+
+      <!-- Controls -->
+      <div id="controls">
+        <button id="hint-button">Hint</button>
+      </div>
+
+      <div id="hint-box"></div>
+    </div>
+
+    <div id="result-box" style="display: none;">
+        <h2 id="congratulations" style="display: none;">Congratulations!</h2>
+        <h2>Your Final Score: <span id="final-score"></span></h2>
+        <p>Badges Earned: <span id="badges"></span></p>
+        <p id="final-xp">XP Earned: </p>
+        <button id="restart-btn">Restart Quiz</button>
       </div>
 
     <!-- Leaderboard Section (Left Side) -->
@@ -76,17 +81,7 @@
     </div>
   </div>
   
-  
-  
 
-    <!-- Badges -->
-    <div class="badges">
-      <h3>Your Badges</h3>
-      <ul id="badges-list">
-        <!-- Badges will be displayed here -->
-      </ul>
-    </div>
-  </div>
 
   <script src="/gamified-lms/public/js/quiz.js"></script>
 </body>

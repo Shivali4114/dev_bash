@@ -34,7 +34,7 @@
       <h2>🧠 Start a Quiz</h2>
       <p>Test your knowledge with gamified quizzes!</p>
     </div>
-    <div class="card">
+    <div class="card"onclick="location.href='/views/learnlaws.html'">
       <h2>📚 Learn Laws</h2>
       <p>Explore interactive lessons and real-world cases.</p>
     </div>
@@ -56,24 +56,30 @@
     </div>
   </section>
 
+  <section>
   <main class="dashboard-container">
-    <div class="left-section">
+    <div class="left-section" class="leaderboard-item" data-id="1" data-points="1500">
         <h2>🏆 Leaderboard</h2>
-
-        <lottie-player
-        src="https://lottie.host/b0d87383-4d1e-4e2f-bad8-a92aeefbe5c5/fs2676dK5W.lottie"
-        background="transparent"
-        speed="1"
-        style="width: 300px; height: 300px;"
-        loop
-        autoplay
-      ></lottie-player>
-
-      <ul id="leaderboard">
-        <li>1. Shivali - 1500 Points</li>
-        <li>2. Om J. - 1400 Points</li>
-        <li>3. Shubham Y. - 1300 Points</li>
-      </ul>
+        <div class="leaderboard">
+          <div class="leaderboard-item" data-id="1" data-points="1500">
+            <span class="rank">1.</span>
+            <span class="name">Siddhi</span>
+            <span class="points">1500 Points</span>
+            <span class="point-change"></span>
+          </div>
+          <div class="leaderboard-item" data-id="2" data-points="1400">
+            <span class="rank">2.</span>
+            <span class="name">Dhanashree</span>
+            <span class="points">1400 Points</span>
+            <span class="point-change"></span>
+          </div>
+          <div class="leaderboard-item" data-id="3" data-points="1300">
+            <span class="rank">3.</span>
+            <span class="name">Shivali</span>
+            <span class="points">1300 Points</span>
+            <span class="point-change"></span>
+          </div>
+        </div>
     </div>
 
     <div class="right-section">
@@ -84,6 +90,7 @@
         <li>Started: Legal Mini-Game "Law Challenge"</li>
       </ul>
     </div>
+
   </main>
   
 

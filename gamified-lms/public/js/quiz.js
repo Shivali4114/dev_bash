@@ -3,36 +3,43 @@ let timeLeft = 30;
 let currentQuestionIndex = 0;
 let score = 0;
 let xp = 0;
-let badges = [];
-let questions = [
+let lives = 3;
+
+// Sample questions related to Child Law
+const questions = [
   {
     question: "What is the age of majority in most countries for legal purposes?",
     options: ["16", "18", "21", "25"],
-    correctAnswer: "18"
+    correctAnswer: "18",
+    hint: "It's the age at which you are considered an adult."
   },
   {
     question: "What is the legal term for someone under the age of 18?",
     options: ["Minor", "Adult", "Senior", "Defendant"],
-    correctAnswer: "Minor"
+    correctAnswer: "Minor",
+    hint: "It's the opposite of an adult."
   },
   {
     question: "At what age can a child be legally tried as an adult in some jurisdictions?",
     options: ["14", "16", "18", "21"],
-    correctAnswer: "16"
+    correctAnswer: "16",
+    hint: "It's a teenage age, but not yet an adult."
   },
   {
     question: "Which of these is a legal right of children?",
     options: ["Right to Vote", "Right to Education", "Right to Drive", "Right to Own Property"],
-    correctAnswer: "Right to Education"
+    correctAnswer: "Right to Education",
+    hint: "This right ensures access to learning."
   },
   {
     question: "What is the best way to protect a child's rights?",
     options: ["Avoid talking to authorities", "Enforce strict punishments", "Know and assert legal rights", "Limit social interaction"],
-    correctAnswer: "Know and assert legal rights"
+    correctAnswer: "Know and assert legal rights",
+    hint: "Knowledge is the key to defending your rights."
   }
 ];
 
-// Load question
+// Load the next question
 function loadQuestion() {
   if (currentQuestionIndex >= questions.length) {
     finishQuiz();
@@ -41,6 +48,9 @@ function loadQuestion() {
 
   const question = questions[currentQuestionIndex];
   document.getElementById('question').innerText = question.question;
+
+  // Clear hint box, don't show it unless the hint button is clicked
+  document.getElementById('hint-box').innerText = '';
 
   const optionsContainer = document.getElementById('options');
   optionsContainer.innerHTML = ''; // Clear previous options
@@ -53,95 +63,120 @@ function loadQuestion() {
     optionsContainer.appendChild(optionDiv);
   });
 
-  // Reset timer
+  // Update timer display
   timeLeft = 30;
-  document.getElementById('timer').innerText = `Time Left: ${timeLeft}s`;
+  document.getElementById('timer-box').innerText = `Timer: ${timeLeft}s`;
 
-  // Start timer countdown
   clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
-    document.getElementById('timer').innerText = `Time Left: ${timeLeft}s`;
+    document.getElementById('timer-box').innerText = `Timer: ${timeLeft}s`;
     if (timeLeft <= 0) {
       clearInterval(timer);
-      checkAnswer('', null); // Timeout case, treat as incorrect
+      nextQuestion();
     }
   }, 1000);
 }
 
-// Check the answer
-function checkAnswer(answer, optionDiv) {
+  // Update progress bar
+  updateProgressBar();
+
+
+// Check if answer is correct
+function checkAnswer(answer, selectedOption) {
   const question = questions[currentQuestionIndex];
+  const options = document.querySelectorAll('.option');
+
+  // Disable further clicks
+  options.forEach(option => option.onclick = null);
+
+  // Highlight the selected option
   if (answer === question.correctAnswer) {
     score += 10;
-    xp += Math.max(0, 30 - timeLeft); // Add XP based on time remaining
-    optionDiv.classList.add('correct');
-    showResult("Correct Answer! 🎉", "green");
+    xp += 5;
+    selectedOption.classList.add('correct');
   } else {
-    optionDiv.classList.add('incorrect');
-    showResult("Incorrect Answer. Try Again!", "red");
+    lives--;
+    selectedOption.classList.add('incorrect');
+    if (lives <= 0) {
+      finishQuiz();
+    }
   }
-}
 
-// Show result after each answer
-function showResult(message, color) {
-  const resultDiv = document.getElementById('result');
-  resultDiv.innerText = message;
-  resultDiv.style.display = 'block';
-  resultDiv.style.color = color;
+  // Update points and XP
+  updatePointsXP();
 
+  // Move to the next question after a short delay (1.5 seconds)
   setTimeout(() => {
-    resultDiv.style.display = 'none';
     currentQuestionIndex++;
     loadQuestion();
-  }, 1500);
+  }, 1500); // 1.5 seconds delay before moving to the next question
 }
 
-// Finish quiz
+// Update the progress bar based on the question index
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const progress = (currentQuestionIndex / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+  }
+  
+// Finish the quiz and show results
 function finishQuiz() {
   clearInterval(timer);
+  document.getElementById('quiz-box').style.display = 'none';
+  const resultBox = document.getElementById('result-box');
+  resultBox.style.display = 'block';
 
-  // Hide quiz elements
-  document.getElementById('question').style.display = 'none';
-  document.getElementById('options').style.display = 'none';
-  document.getElementById('timer').style.display = 'none';
-  document.getElementById('points-box').style.display = 'none';
-  document.getElementById('xp-box').style.display = 'none';
-  document.getElementById('hint-btn').style.display = 'none';
-  document.getElementById('next-btn').style.display = 'none';
+  document.getElementById('final-score').innerText = `Final Score: ${score}`;
+  document.getElementById('badges').innerText = "Badges Earned: " + (score === 50 ? "Perfect Score" : "First Quiz Done");
 
-  // Show result
-  document.getElementById('final-score').innerText = score;
-  document.getElementById('final-xp').innerText = xp;
-  document.getElementById('result-box').style.display = 'block';
-
-  // Trigger celebration (confetti effect)
-  triggerCelebration();
+// Add confetti animation on completion
+showConfetti();
 }
 
-// Trigger confetti animation
-function triggerCelebration() {
-  const confettiElement = document.createElement('div');
-  confettiElement.classList.add('confetti');
-  document.body.appendChild(confettiElement);
+// Show confetti
+function showConfetti() {
+  var count = 100;
+  var end = Date.now() + (15 * 1000);
 
-  setTimeout(() => {
-    confettiElement.remove();
-  }, 4000);
+  (function frame() {
+    confetti({
+      particleCount: count,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+      colors: ['#ff0000', '#ff7300', '#fffb00', '#00ff00', '#0080ff', '#8000ff'],
+      startVelocity: 25,
+      ticks: 200
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
 }
 
-// Restart quiz
-function restartQuiz() {
-  score = 0;
-  xp = 0;
-  currentQuestionIndex = 0;
-  loadQuestion();
-  document.getElementById('result-box').style.display = 'none';
+
+// Show result in the quiz box
+function updatePointsXP() {
+  document.getElementById('points-box').innerText = `Points: ${score}`;
+  document.getElementById('xp-box').innerText = `XP: ${xp}`;
 }
 
-// Start quiz
+// Hint functionality (displaying hint message inside quiz box)
+document.getElementById('hint-button').onclick = function() {
+  const question = questions[currentQuestionIndex];
+  document.getElementById('hint-box').innerText = `Hint: ${question.hint}`;
+};
+
+// Restart the quiz after completion
+document.getElementById('restart-btn').onclick = function() {
+  location.reload();
+};
+
+// Load the first question when the page is ready
 loadQuestion();
-document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+
 
 
 
