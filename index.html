@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnLegal - Play to Learn Your Rights</title>
+  <link rel="stylesheet" href="/gamified-lms/public/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+
+
+<div class="top-nav-buttons">
+  <a href="/views/login.html" class="top-btn">Login</a>
+  <a href="/views/dashboard.html" class="top-btn">Dashboard</a>
+  <a href="/views/quiz.html" class="top-btn">Games</a>
+</div>
+
+
+<body>
+  <!-- Hero Section -->
+  <header class="main-header">
+    <div class="header-content">
+      <h1><span class="highlight">LearnLegal</span></h1>
+      <h2 class="tagline">⚖️ Play. Learn. Know Your Rights.</h2>
+      <p class="subheading">
+        An interactive journey to understand your legal rights as a kid – all through fun games!
+      </p>
+  
+      <div class="cta-buttons">
+        <a href="/views/login.html" class="btn-primary">Start Playing</a>
+        <a href="#how-it-works" class="btn-secondary">How It Works</a>
+      </div>
+    </div>
+  
+    <div class="hero-animation">
+        <dotlottie-player 
+          src="https://lottie.host/ae310799-4d78-4700-9619-d011cf43932f/2dtvjMMsbB.lottie" 
+          background="transparent" 
+          speed="1" 
+          style="width: 350px; height: 300px" 
+          loop 
+          autoplay>
+        </dotlottie-player>
+      </div>
+  
+    <div class="wave"></div>
+  </header>
+
+  <section id="how-it-works">
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <a href="/views/quiz.html" class="step-link">
+      <div class="steps">
+        <div class="step" >
+          🎮
+          <h3>Play Games</h3>
+          <p>Based on real-life legal situations</p>
+        </div>
+      </a>
+      <a href="/views/learnlaws.html" class="step-link">
+        <div class="step">
+          📘
+          <h3>Learn Rights</h3>
+          <p>Interactive lessons and audio guides</p>
+        </div>
+      </a>`
+
+        <a href="/views/dashboard.html" class="step-link">
+        <div class="step">
+          🏆
+          <h3>Win Badges</h3>
+          <p>Progress through levels and quizzes</p>
+        </div>
+      </div>
+    </a>
+    </section>
+  </section>
+  
+
+ <!-- Stats Section -->
+<section class="stats" id="know-the-numbers">
+  <h2>Know the Numbers</h2>
+  <div class="counters">
+    <div class="counter">
+      <h3><span class="count" data-target="85">0</span>%</h3>
+      <p>Children unaware of rights</p>
+    </div>
+    <div class="counter">
+      <h3><span class="count" data-target="10000">0</span>+</h3>
+      <p>Points earned so far</p>
+    </div>
+    <div class="counter">
+      <h3><span class="count" data-target="500">0</span>+</h3>
+      <p>Legal Heroes created</p>
+    </div>
+  </div>
+</section>
+
+<!--Meet the Heros-->>
+<section id="meet-the-heroes">
+  <h2>Meet the Heroes</h2>
+  <div class="hero-block-container">
+    <!-- Left Side: Justice Kid -->
+    <div class="hero-block">
+      <img src="/gamified-lms/public/images/justice.png" alt="Justice Kid" class="hero-img">
+      <div class="hero-details">
+        <h3>Justice Kid</h3>
+        <p>Justice Kid fights for fairness and equality. With his knowledge of the law, he ensures that justice is served in every situation.</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Safety Girl -->
+    <div class="hero-block">
+      <img src="/gamified-lms/public/images/safety-girl.png" alt="Safety Girl" class="hero-img">
+      <div class="hero-details">
+        <h3>Safety Girl</h3>
+        <p>Safety Girl is a protector of the vulnerable. She educates others on how to protect their rights and stay safe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Demo Section -->
+  <section class="demo">
+    <h2>See LearnLegal in Action</h2>
+    <video controls width="80%" aria-label="Demo of LearnLegal interactive platform">
+      <source src="/videos/demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- Join Movement CTA -->
+  <section class="join-movement">
+    <h2>Be Part of the Change</h2>
+    <p>Help build a future where every child knows their rights!</p>
+    <a href="/signup.html" class="btn-primary">Join Us</a>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <h2>FAQs</h2>
+    <details><summary>Is LearnLegal free?</summary><p>Yes, 100% free for all children!</p></details>
+    <details><summary>What age group is it for?</summary><p>Recommended for 8–16 years old.</p></details>
+    <details><summary>Is it available in local languages?</summary><p>Yes, it supports multilingual access!</p></details>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section class="subscribe">
+    <h2>Stay Updated</h2>
+    <form>
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 LearnLegal | Empowering Children Everywhere</p>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const counters = document.querySelectorAll('.count');
+  
+    const animateCounter = (counter) => {
+      counter.innerText = '0'; // reset count
+      const target = +counter.getAttribute('data-target');
+      const speed = 200;
+      const step = Math.ceil(target / speed);
+  
+      const update = () => {
+        const current = +counter.innerText;
+        if (current < target) {
+          counter.innerText = Math.min(current + step, target);
+          requestAnimationFrame(update);
+        }
+      };
+      update();
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.count');
+          counters.forEach(counter => animateCounter(counter));
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+  
+    const statsSection = document.getElementById('know-the-numbers');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  </script>  
+  
+</body>
+</html>
